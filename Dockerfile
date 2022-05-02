@@ -1,2 +1,2 @@
 FROM ubuntu-latest
-CMD echo "hi"
+CMD echo "hi hamed"
