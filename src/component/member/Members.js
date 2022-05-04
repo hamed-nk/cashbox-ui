@@ -54,6 +54,7 @@ const Members = () => {
                   <Link className="btn btn-primary" 
                   to={`/member/${member.id}`}>
                     View
+                    
                   </Link>
                   <Link
                     className="btn btn-outline-primary m-2"
@@ -61,13 +62,13 @@ const Members = () => {
                   >
                     Edit
                   </Link>
-                  <button
+                  <Link
                     className="btn btn-danger"
-                    type="submit"
+                    to=""
                     onClick={() => deleteMember(member.id)}
                   >
                     Delete
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}

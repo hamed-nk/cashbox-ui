@@ -15,13 +15,12 @@ const Member = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    const loadMember = async () => {
+      const result = await axios.get(`${base_url}/member`);
+      setMember(result.data);
+    };
     loadMember();
   }, []);
-
-  const loadMember = async () => {
-    const result = await axios.get(`${base_url}/member/${id}`);
-    setMember(result.data);
-  };
 
   return (
     <div className="container my-5">
@@ -29,13 +28,13 @@ const Member = () => {
         Back To Members
       </Link>
       <ul className="list-group">
-        <li className="list-group-item disabled" aria-disabled="true">
-          Member Id: {id}
-        </li>
+        <li className="list-group-item disabled">Member Id: {id}</li>
         <li className="list-group-item">First Name : {member.firstName}</li>
         <li className="list-group-item">Last Name : {member.lastName}</li>
         <li className="list-group-item">Mobile : {member.mobile}</li>
-        <li className="list-group-item">National Code: {member.nationalCode}</li>
+        <li className="list-group-item">
+          National Code: {member.nationalCode}
+        </li>
       </ul>
     </div>
   );

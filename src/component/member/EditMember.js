@@ -19,6 +19,10 @@ const EditMember = () => {
   };
 
   useEffect(() => {
+    const loadMember = async () => {
+      const result = await axios.get(`${base_url}/member/${id}`);
+      setMember(result.data);
+    };
     loadMember();
   }, []);
 
@@ -26,11 +30,6 @@ const EditMember = () => {
     e.preventDefault();
     await axios.put(`${base_url}/member/${id}`, member);
     navigate("/members");
-  };
-
-  const loadMember = async () => {
-    const result = await axios.get(`${base_url}/member/${id}`);
-    setMember(result.data);
   };
 
   return (
@@ -96,7 +95,7 @@ const EditMember = () => {
           </div>
           <div className="col-12">
             <button type="submit" className="btn btn-warning">
-              Edit Member 
+              Edit Member
             </button>
           </div>
         </form>
